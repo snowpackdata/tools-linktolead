@@ -1,0 +1,47 @@
+# LinkToLead Configuration Template
+# Save as .linktolead_config.yaml in the project root
+
+# --- HubSpot Deal Settings ---
+# Default HubSpot Deal Owner ID 
+# You can find this in HubSpot under Settings > Users & Teams
+default_deal_owner_id: ""  # Required: Enter your HubSpot user ID
+
+# Default Deal Stage ID
+# Common values: appointmentscheduled, qualifiedtobuy, presentationscheduled, decisionmakerboughtin, etc.
+default_deal_stage_id: "appointmentscheduled" 
+
+# Default Deal Pipeline ID
+# Use "default" for the main pipeline or find custom pipeline IDs in HubSpot settings
+default_deal_pipeline_id: "default" 
+
+# --- Browser Settings ---
+# Run browser in headless mode (no UI) by default
+headless: true
+
+# --- LLM Processing Settings ---
+# Whether to use LLM processing to clean up and enhance scraped data
+llm_enabled: false
+
+# LLM Integration Method (only "llm-library" is currently supported)
+llm_method: "llm-library"  # Uses the "llm" Python library with "llm-mlx" plugin
+
+# Model identifier for llm-library method (Mac-optimized Mistral model)
+llm_model_id: "mlx-community/Mistral-7B-Instruct-v0.3-4bit"
+
+# --- Platform Configuration ---
+# Used for future extensibility to different sources and destinations
+platform:
+  # Source platform configuration (where to scrape data from)
+  source:
+    type: "linkedin"    # Currently only "linkedin" is supported
+  
+  # Destination platform configuration (where to send data to)
+  destination:
+    type: "hubspot"     # Currently only "hubspot" is supported
+    api_version: "v3"   # HubSpot API version
+
+# --- Additional custom HubSpot properties ---
+# Add default values for other HubSpot properties below as needed
+# format: default_property_name: "value"
+# Example:
+# default_dealname_prefix: "LinkedIn Job - " 
